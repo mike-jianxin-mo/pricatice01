@@ -25,3 +25,22 @@ test('input action', () => {
     userEvent.type(input, 'Hello, World!') 
     expect(input).toHaveValue('Hello, World!')
 })
+
+/*
+    React Test - Test library:
+      1. Query:
+         getByRole, getByText
+      2. User Action
+
+    React Test - Expect: Jest
+      
+*/
+test('the submit form', () => {
+    render(<SimpleForm />)
+    const input = screen.getByRole('textbox')
+    userEvent.type(input, 'How are you')
+    const button = screen.getByRole('button')
+    userEvent.click(button)
+    const showInput = screen.getByRole('show')
+    expect(showInput).toHaveValue('How are you')
+})
