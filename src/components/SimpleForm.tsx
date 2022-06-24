@@ -5,11 +5,12 @@ const SimpleForm = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>)  => { // 1. event type
         event.preventDefault()
-        alert('Form submitted ' + userName)
+        console.log(userName)
+        // alert('Form submitted ' + userName)
     }
     return <div>
         <div>A Simple Form</div>
-        <div>Current User Name: {userName}</div>
+        <div data-testid="show">Current User Name: {userName}</div>
         <form onSubmit={handleSubmit}>
             <fieldset>
                 <label htmlFor="my-input">User Name</label>
