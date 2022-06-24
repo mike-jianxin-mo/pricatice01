@@ -15,6 +15,9 @@ A. how to get an input field in test
   2. input = screen.getByLabelText(/user name/i)
 
 B. the getByRole('input') is not working, it should be getByRole('textbox')
+
+c. the type function of the userEvent, it can type in the enter key, etc
+   https://testing-library.com/docs/ecosystem-user-event/
 */
 test('input action', () => {
     render(<SimpleForm />)
