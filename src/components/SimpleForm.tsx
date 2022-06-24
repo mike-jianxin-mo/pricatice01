@@ -8,11 +8,12 @@ const SimpleForm = () => {
         alert('Form submitted ' + userName)
     }
     return <div>
-        <div>Simple Form</div>
+        <div>A Simple Form</div>
+        <div>Current User Name: {userName}</div>
         <form onSubmit={handleSubmit}>
             <fieldset>
-                <label>Name</label>
-                <input name="userName" onChange={e => setUserName(e.target.value)} ></input>
+                <label htmlFor="my-input">User Name</label>
+                <input id="my-input" name="userName" onChange={e => setUserName(e.target.value)} ></input>
             </fieldset>
             <button type="submit">Submit</button>
         </form>
