@@ -6,7 +6,7 @@ describe('test simple user functions', () => {
         await request(app)
             .post('/users')
             .send({userName: 'mike mo'})
-            .expect(200)
+            .expect(201)
     })
 })
 
