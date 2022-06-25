@@ -1,10 +1,11 @@
 import express, {Request, Response} from 'express'
 import {randomBytes} from 'crypto'
 import bodyParser from 'body-parser'
+import cors from 'cors'
 
 const app = express()
-
 app.use(bodyParser.json())
+app.use(cors())
 
 type User = {
     id: string;
