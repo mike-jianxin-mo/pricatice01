@@ -12,7 +12,8 @@ class UserService {
         console.log(data)
         const requestOptions = {
             method: 'POST',
-            header: {'Content-Type': 'application/json'},
+            // body parser is empty, if the headers mistyping to header!!!
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
         }
 
