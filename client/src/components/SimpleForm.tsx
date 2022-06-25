@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import userService from '../services/UserService'
 
 const SimpleForm = () => {
     const [userName, setUserName] = useState<string>("")    // 2. type of the state object, 3. don't forget the const!
@@ -7,6 +8,7 @@ const SimpleForm = () => {
         event.preventDefault()
         console.log(userName)
         // alert('Form submitted ' + userName)
+        userService.addUser({userName: userName})
     }
     return <div>
         <div>A Simple Form</div>
