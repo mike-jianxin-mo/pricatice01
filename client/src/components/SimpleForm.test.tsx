@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SimpleForm from './SimpleForm';
 
@@ -86,3 +86,21 @@ FIND!!!,
 The normal state change is solved by the find function!!
 The find functions are the async function of the get functions.
  */
+
+test('add user with mock server', async () => {
+    render(<SimpleForm/>)
+    const input = screen.getByRole('textbox') // or screen.getByLabelText(/user name/i)
+    userEvent.type(input, 'Hello, World!') 
+    expect(input).toHaveValue('Hello, World!')
+
+    const button = screen.getByRole('button')
+    userEvent.click(button)
+
+    // the waitFor uses for the mock server
+    await waitFor(async () => {
+      const result = await screen.findByTestId('added-user');
+      // console.log(result)
+      expect(result.textContent).toEqual('Hello, World!');
+    })
+
+})

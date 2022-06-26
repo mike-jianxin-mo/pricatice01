@@ -2,8 +2,13 @@ export type UserInfo = {
     userName: string;
 }
 
+export type DBUserInfo = {
+    id: string;
+    userName: string;
+}
+
 export type UserServiceType = {
-    addUser: (data: UserInfo) => void
+    addUser: (data: UserInfo) => DBUserInfo[]
 }
 
 class UserService {
@@ -22,6 +27,8 @@ class UserService {
         const result = await response.json();
 
         console.log(result);
+ 
+        return result;
     }
 }
 
